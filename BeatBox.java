@@ -1,5 +1,6 @@
 import java.awt.*;
 import javax.swing.*;
+import java.io.*;
 import javax.sound.midi.*;
 import java.util.*;
 import java.awt.event.*;
@@ -48,6 +49,14 @@ public class BeatBox {
 		JButton downTempo = new JButton("Tempo Down");
 		downTempo.addActionListener(new MyDownTempoListener());
 		buttonBox.add(downTempo);
+		
+		JButton serialiseIt = new JButton("Serialise It");
+		serialiseIt.addActionListener(new MySendListener());
+		buttonBox.add(serialiseIt);
+		
+		JButton restore = new JButton("Restore");
+		restore.addActionListener(new MyReadInListener());
+		buttonBox.add(restore);
 		
 		Box nameBox = new Box(BoxLayout.Y_AXIS);
 		for (int i = 0; i < 16; i++) {
